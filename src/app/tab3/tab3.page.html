@@ -1,17 +1,79 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title> Procurar Livros </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <form
+    [formGroup]="searchFG"
+    #searchFGD="ngForm"
+    (ngSubmit)="search(searchFG.value)"
+  >
+    <ion-item>
+      <ion-input
+        formControlName="nome"
+        placeholder="Enter the nome"
+        required
+      ></ion-input>
+      <ion-button type="submit" color="primary" [disabled]="!searchFG.valid">
+        Find
+        <ion-icon slot="end" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </form>
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let livros of livrosList">
+      <ion-item slot="header" color="dark">
+        <ion-label>{{livros.nome}} {{livros.autor}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-avatar slot="start">
+          <img src="/assets/image/avatar1.png" alt="" />
+        </ion-avatar>
+        <ion-item>
+          <ion-label (click)="editLivros(livros.id)">{{livros.nome}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.autor}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.ano}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.categoria}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.livraria}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.username}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.password}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.email}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.cpf}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.cep}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.logradouro}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.numero}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.bairro}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{livros.localidade}}</ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>

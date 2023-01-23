@@ -1,0 +1,44 @@
+
+.photo-wrapper{
+  justify-content: center;
+}
+ion-content{
+  --padding-top: 15px;
+}
+
+ion-title{
+  text-align: center;
+  color: #f3f3f3;
+  font-weight: 600;
+}
+
+.new-background-color{
+  --background: #D5B73C;
+}
+
+.preview{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+.fallback{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #bfbfbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+ion-list {
+  ion-label {
+    padding-left: 10px;
+    margin-bottom: 6px;
+    font-size: 18px;
+    --color:#5e542e;
+    font-style: italic;
+  }
+}
